@@ -10,9 +10,11 @@ const UseStateCounter = () => {
     setValue(0)
   }
 
+  // When the user clicks, there is a 2 sec delay then the value increases. setTimeout takes two parameters, a callback function that is going to run then the delay in miliseconds. 
   const complexIncrease = () => {
     setTimeout(() => {
-      // setValue(value + 1);
+      // setValue(value + 1); This does not work since setValue is asyncronous and it only updates the current value that is set and only runs once if clicked on multiple times at once.
+      // Using the functional approach and passing a parameter (prevState) allows us to store the previous value and then iterate over that value. 
       setValue((prevState) => {
         console.log(prevState);
         return prevState + 1
