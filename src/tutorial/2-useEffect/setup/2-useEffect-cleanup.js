@@ -10,6 +10,7 @@ const UseEffectCleanup = () => {
     setSize(window.innerWidth);
   }
 
+  // When the window size changes, it invokes the checkSize function with updates the state value of setSize which then triggers a re-render. What the cleanup function does is remove the event listener after each render so that you are constantly invoking the event listener and adding multiple event listeners to the memory.
   useEffect(() => {
     console.log('useEffect');
     window.addEventListener('resize', checkSize);

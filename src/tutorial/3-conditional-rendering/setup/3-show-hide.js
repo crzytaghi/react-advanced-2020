@@ -7,7 +7,7 @@ const ShowHide = () => {
   return (
     <div>
       <button className='btn' onClick={() => setShow(!show)}>show/hide</button>
-      {show && <Item />}
+      {show && <Item />} {/* if show is true, it will display the <Item />. If it is false it will display null. */}
     </div>
   )
 };
@@ -21,6 +21,7 @@ const Item = () => {
 
   useEffect(() => {
     window.addEventListener('resize', checkSize);
+    // Utilize the cleanup function to clean the event listener after every re-render.
     return () => {
       window.removeEventListener('resize', checkSize);
     }
